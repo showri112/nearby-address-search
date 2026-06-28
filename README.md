@@ -15,13 +15,30 @@ venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-3. Run the app:
+3. Run the app in development mode:
 ```bash
-python main.py
+uvicorn app.main:app --reload
 ```
 
 4. API will be available at: http://localhost:8000
    - Swagger docs: http://localhost:8000/docs
+
+## Project Structure
+
+```
+app/
+  __init__.py
+  main.py
+  database.py
+  models.py
+  schemas.py
+  crud.py
+  routers.py
+  utils.py
+main.py
+requirements.txt
+README.md
+```
 
 ## API Endpoints
 
