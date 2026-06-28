@@ -4,17 +4,23 @@ A simple API for managing addresses and searching for nearby addresses using geo
 
 ## Setup & Installation
 
-1. Install dependencies:
+1. Create and activate a virtual environment (Windows):
+```bash
+python -m venv venv
+venv\Scripts\activate
+```
+
+2. Install dependencies:
 ```bash
 pip install -r requirements.txt
 ```
 
-2. Run the app:
+3. Run the app:
 ```bash
 python main.py
 ```
 
-3. API will be available at: http://localhost:8000
+4. API will be available at: http://localhost:8000
    - Swagger docs: http://localhost:8000/docs
 
 ## API Endpoints
@@ -63,7 +69,7 @@ The search endpoint is optimized in two stages to handle large databases efficie
 Instead of calculating distance for every address in the database, we first filter using a geographic bounding box:
 - Convert the search radius to latitude/longitude offsets
 - Query only addresses within this box using database WHERE clause
-- This reduces candidate addresses by ~80-95% without heavy calculations
+- This reduces addresses by ~80-95% without heavy calculations
 
 **Stage 2: Precise Distance Calculation**
 Only the filtered addresses get the exact Haversine distance calculated and sorted by distance.
